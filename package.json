@@ -1,0 +1,23 @@
+{
+  "name": "leetcode_clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrathumP/Leetcode_Clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrathumP/Leetcode_Clone/issues"
+  },
+  "homepage": "https://github.com/PrathumP/Leetcode_Clone#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
