@@ -1,9 +1,11 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 const port = 3000;
 var jwt = require("jsonwebtoken");
 const { auth } = require("./middleware");
 let USER_ID_COUNTER = 1;
+
 const USERS = [
   {
     email : "evsdrvs45",
@@ -15,6 +17,7 @@ const bodyParser = require("body-parser");
 var jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 const cors = require("cors");
+
 app.use(cors());
 app.use(jsonParser);
 
@@ -120,13 +123,10 @@ app.get("/problems", (req, res) => {
 
 app.get("/problem/:id", (req, res) => {
   const id = req.params.id;
-
   const problem = PROBLEMS.find((x) => x.problemId === id);
-
   if (!problem) {
     return res.status(411).json({});
   }
-
   res.json({
     problem,
   });

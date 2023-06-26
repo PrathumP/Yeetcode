@@ -8,49 +8,6 @@ import Signup from "./Components/Signup.jsx";
 import Login from "./Components/Login.jsx";
 import Error from "./Components/Error.jsx";
 
-const problems1 = [{
-  title: "201. Bitwise AND of Numbers Range",
-  difficulty: "Medium",
-  acceptance: "42%"
-},{
-  title: "201. Bitwise AND of Numbers Range",
-  difficulty: "Medium",
-  acceptance: "412%"
-},
-  {
-      title: "202. Happy Number",
-      difficulty: "Easy",
-      acceptance: "54.9%"
-  },
-  {
-      title: "203. Remove Linked List Elements",
-      difficulty: "Hard",
-      acceptance: "42%"
-  }];
-
-  const problems2 = [
-    {
-      title: "Two Sum",
-      difficulty: "Easy",
-      acceptance: "42%",
-    },
-    {
-      title: "Add Two Numbers",
-      difficulty: "Medium",
-      acceptance: "41.2%",
-    },
-    {
-      title: "Longest Substring Without Repeating Characters",
-      difficulty: "Medium",
-      acceptance: "31.2%",
-    },
-    {
-      title: "Median of Two Sorted Arrays",
-      difficulty: "Hard",
-      acceptance: "32%",
-    },
-  ];
-
   function problemStatement(props){
     const title = props.title;
     const difficulty = props.difficulty;
