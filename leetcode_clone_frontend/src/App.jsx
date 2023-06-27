@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import Home from "./Components/Home.jsx";
 import Signup from "./Components/Signup.jsx";
-import Login from "./Components/Login.jsx";
+import Login from "./Components/Login/Login.jsx";
 import Error from "./Components/Error.jsx";
 
   function problemStatement(props){
