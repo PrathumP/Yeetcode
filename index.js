@@ -140,7 +140,7 @@ app.post("/login", async (req, res) => {
 }); 
 
 mongoose
-	.connect("mongodb://localhost/lcproblemdb")
+	.connect("mongodb://localhost:27017/lcproblemdb")
 	.then(() => {
 		console.log("Connected to MongoDB");
 	})

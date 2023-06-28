@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { backendUrl } from "../constants.js";
+import axios from "axios";
 import "./Signup.css";
-import { backendUrl } from "../../constants.js";
 
 const Signup = () => {
   const [email, setEmail] = useState("");

@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { useState } from "react";
-import "./Login.css";
-import { backendUrl } from "../../constants.js";
+import { backendUrl } from "../constants.js";
+import "./Login.css"; 
 
 const Login = () => {
   const [email, setEmail] = useState("");
