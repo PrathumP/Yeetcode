@@ -21,8 +21,70 @@ app.get("/", (req, res) => {
   });
 });
 
+const sampleProblems = [{
+	title: "Sample Problem",
+	problemId: "1",
+	difficulty: "Easy",
+	description: "This is a sample problem description.",
+	exampleIn: "Input for the sample problem",
+	exampleOut: "Output for the sample problem",
+  },{ title: "Sample Problem",
+  problemId: "2",
+  difficulty: "Easy",
+  description: "This is a sample problem2 description.",
+  exampleIn: "Input for the sample problem2",
+  exampleOut: "Output for the sample problem2",
+},{ title: "Sample Problem3",
+problemId: "3",
+difficulty: "Medium",
+description: "This is a sample problem3 description.",
+exampleIn: "Input for the sample problem3",
+exampleOut: "Output for the sample problem3",
+},{ title: "Sample Problem4",
+problemId: "4",
+difficulty: "Difficult",
+description: "This is a sample problem4 description.",
+exampleIn: "Input for the sample problem4",
+exampleOut: "Output for the sample problem4",
+},{ title: "Sample Problem5",
+problemId: "5",
+difficulty: "Medium",
+description: "This is a sample problem5 description.",
+exampleIn: "Input for the sample problem5",
+exampleOut: "Output for the sample problem5",
+},{ title: "Sample Problem6",
+problemId: "6",
+difficulty: "Difficult",
+description: "This is a sample problem6 description.",
+exampleIn: "Input for the sample problem6",
+exampleOut: "Output for the sample problem6",
+},
+];
+
+async function saveSampleProblems() {
+	try {
+	  for (const problemData of sampleProblems) {
+		const { problemId } = problemData;
+		const existingProblem = await ProblemsModel.findOne({ problemId });
+  
+		if (existingProblem) {
+		  console.log(`Problem with problemId '${problemId}' already exists. Skipping...`);
+		  continue;
+		}
+  
+		const sampleProblem = new ProblemsModel(problemData);
+		await sampleProblem.save();
+		console.log(`Sample problem '${sampleProblem.title}' saved successfully!`);
+	  }
+	} catch (error) {
+	  console.error(error);
+	}
+  }
+  
+  saveSampleProblems();
+
 app.get("/problems", async (req, res) => {
-  const problems = ProblemsModel.find();
+  const problems = await ProblemsModel.find();
 
   res.json({
     problems: problems,
@@ -140,7 +202,10 @@ app.post("/login", async (req, res) => {
 }); 
 
 mongoose
-	.connect("mongodb://localhost:27017/lcproblemdb")
+	.connect("mongodb://localhost:27017/lcproblemdb", {
+		useNewUrlParser: true,
+  		useUnifiedTopology: true,
+	})
 	.then(() => {
 		console.log("Connected to MongoDB");
 	})

@@ -36,7 +36,7 @@ const ProblemsPage = () => {
 		init();
 	}, []);
     const handleKey = (event) => {
-		if (event.key == "Tab") {
+		if (event.key === "Tab") {
 			event.preventDefault();
 			const { selectionStart, selectionEnd, value } = event.target;
 			const val =
