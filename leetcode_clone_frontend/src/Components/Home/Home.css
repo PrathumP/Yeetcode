@@ -1,0 +1,16 @@
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    background-color: lightgray;
+  }
+  
+  .navbar a {
+    margin-left: 10px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  

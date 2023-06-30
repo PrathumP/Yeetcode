@@ -1,78 +1,65 @@
 #problempage {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .ques {
-    flex: 1;
-    margin-right: 20px;
-  }
-  
-  h1 {
-    margin-bottom: 10px;
-  }
-  
-  h5 {
-    margin-top: 20px;
-  }
-  
-  p {
-    margin-bottom: 10px;
-  }
-  
-  code {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .submissions table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .submissions th,
-  .submissions td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .submissions th {
-    background-color: #f2f2f2;
-  }
-  
-  .code {
-    flex: 1;
-  }
-  
-  h1 {
-    margin-bottom: 10px;
-  }
-  
-  .code-form {
-    margin-top: 20px;
-  }
-  
-  textarea {
-    width: 100%;
-    height: 200px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    margin-bottom: 10px;
-  }
-  
-  button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #45a049;
-  }
-  
+  min-height: 91vh;
+  display: flex;
+  align-items: flex-start;
+}
+
+.ques , .code {
+  width: 70%;
+  min-height: 65vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+
+.ques p {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+
+.ques code {
+  display: block;
+  font-family: monospace;
+  font-size: 22px; /* Adjust the font size as desired */
+  margin-bottom: 10px;
+}
+
+.code-form {
+  height: 70vh;
+}
+
+textarea , pre {
+  width: 100%;
+  height: 100%;
+  font-size: 1.3rem;
+  -moz-tab-size : 4;
+    -o-tab-size : 4;
+       tab-size : 4;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  font-weight: 800;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+#test {
+  background-color: gray;
+}
+#submit {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #44cd49;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: #45a049;
+}
