@@ -1,16 +1,122 @@
+/* homeStyles.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url("./background.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  opacity : 0.85;
+}
+
 .navbar {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px;
-    background-color: lightgray;
-  }
-  
-  .navbar a {
-    margin-left: 10px;
-  }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  
+  background-color: rgba(138, 187, 238, 0.8);
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar a {
+  color: #e8e3e3;
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 80px 0;
+  color: #fff;
+}
+
+.hero-section h1 {
+  margin-bottom: 20px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.cta-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+
+.feature-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.feature-card {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 0 20px;
+  background-color: rgba(210, 207, 243, 0.8);
+}
+
+.feature-card h2 {
+  color: #333;
+}
+
+.feature-card p {
+  color: #777;
+  margin-top: 10px;
+}
+
+.feature-cta {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.testimonial-section {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.testimonial-section h2 {
+  color: #f6f1f1;
+}
+
+testimonial-section {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.testimonial-section h2 {
+  color: #faf7f7;
+}
+
+.testimonial-card {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+.testimonial-card p {
+  color: #333;
+  font-style: italic;
+}
+
+.testimonial-author {
+  margin-top: 10px;
+  font-weight: bold;
+}

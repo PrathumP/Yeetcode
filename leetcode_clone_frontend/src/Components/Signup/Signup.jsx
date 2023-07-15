@@ -54,6 +54,9 @@ const Signup = () => {
         >
           SIGNUP
         </button>
+        <p className="forgot-password text-right">
+            Already registered ? <a href="/login">Login</a>
+          </p>
       </div>
     </div>
   );
