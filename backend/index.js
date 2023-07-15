@@ -3,14 +3,16 @@ const mongoose = require("mongoose");
 const app = express();
 const port = 3000;
 var jwt = require("jsonwebtoken");
-const { auth } = require("./middleware");
+//const { auth } = require("./middleware");
+
+const auth = require("./auth");
+const bcrypt = require("bcryptjs");
 
 const dbConnect = require("./db/dbconnect");
 
 const ProblemsModel = require("./models/problems");
 const SubmissionsModel = require("./models/submissions");
 const UserModel = require("./models/User");
-
 const JWT_SECRET = "secret";
 const cors = require("cors");
 
@@ -143,15 +145,17 @@ app.post("/submission", auth, async (req, res) => {
 
 app.post("/signup", async (req, res) => {
   try {
+	    const encryptedPassword = await bcrypt.hash(req.body.password, 10);
 		const existingEmail = await UserModel.findOne({
 			email: req.body.email,
 		});
 		if (existingEmail) {
 			return res.status(409).json({ message: "Email already exists!" });
 		}
+		
 		const newUser = new UserModel({
 			email: req.body.email,
-			password: req.body.password,
+			password: encryptedPassword,
 		});
 
 		await newUser.save();
@@ -169,39 +173,34 @@ app.post("/signup", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   console.log(req.body);
-  try {
-		const email = req.body.email;
-		const password = req.body.password;
-		const user = await UserModel.findOne({
-			name: req.body.username,
-		});
-		if (!user) {
-			return res.status(403).json({ msg: "User not found" });
-		}
+  const { email, password } = req.body;
 
-		const isMatch = await user.comparePassword(req.body.password);
-		if (!isMatch) {
-			return res.status(403).json({ msg: "Incorrect password" });
-		}
+  const user = await UserModel.findOne({ email });
+  if (!user) {
+    return res.json({ error: "User Not found" });
+  }
+  if (await bcrypt.compare(password, user.password)) {
+    const token = jwt.sign({ id: user.userId }, JWT_SECRET, {
+      expiresIn: "15m",
+    });
 
-		const token = jwt.sign(
-			{
-				id: user.userId,
-			},
-			JWT_SECRET
-		);
+    if (res.status(201)) {
+      return res.json({ message: "Logged in successfully!", status: "ok", token: token });
+    } else {
+      return res.json({ error: "Server error" });
+    }
+  }
+  res.json({ status: "error", error: "InvAlid Password" });
+});
 
-		console.log("User logged in!");
-		console.log(req.body.username);
-		res.status(200).json({
-			message: "Logged in successfully!",
-			token: token,
-		});
-	} catch (err) {
-		console.error(err);
-		res.status(500).json({ error: "Server error" });
-	} 
-}); 
+app.get("/free-endpoint", (req, res) => {
+	res.json({ message: "You are free to access me anytime" });
+  });
+  
+  // authentication endpoint
+  app.get("/auth-endpoint", auth,  (req, res) => {
+	res.json({ message: "You are authorized to access me" });
+  });
 
 dbConnect();
 
