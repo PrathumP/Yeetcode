@@ -27,6 +27,7 @@ body {
   text-align: center;
   padding: 80px 0;
   color: #fff;
+  position: relative; 
 }
 
 .hero-section h1 {
@@ -52,6 +53,7 @@ body {
   display: flex;
   justify-content: center;
   padding: 40px 0;
+  position: relative;
 }
 
 .feature-card {
@@ -61,6 +63,7 @@ body {
   padding: 20px;
   margin: 0 20px;
   background-color: rgba(210, 207, 243, 0.8);
+  position: relative;
 }
 
 .feature-card h2 {
@@ -119,4 +122,27 @@ testimonial-section {
 .testimonial-author {
   margin-top: 10px;
   font-weight: bold;
+}
+
+@keyframes popup {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-section {
+  animation: popup 1s ease ;
+} 
+
+.testimonial-section {
+  animation: popup 1s ease;
+}
+
+.feature-section {
+  animation: popup 1s ease ;
 }

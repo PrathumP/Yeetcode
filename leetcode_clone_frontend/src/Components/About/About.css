@@ -1,0 +1,52 @@
+/* About.css */
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    animation: popup 1s ease;
+  }
+  
+  .about-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff; /* Set the text color to white for better visibility on the background image */
+  }
+  
+  .about-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #fff; /* Set the text color to white for better visibility on the background image */
+  }
+  
+  .about-container ul {
+    margin-left: 20px;
+  }
+  
+  .about-container li {
+    margin-bottom: 10px;
+  }
+  
+  /* Additional styles for readability and better contrast */
+  .about-container a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  .about-container a:hover {
+    color: #ccc;
+  }
+
+  @keyframes popup {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  

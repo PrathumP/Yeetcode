@@ -53,6 +53,9 @@ const Login = () => {
 				>
 					Login
 				</button>
+				<p className="forgot-password text-right">
+            New User? <a href="/signup">Signup</a>
+          </p>
 			</div>
 		</div>
 	);

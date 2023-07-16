@@ -35,4 +35,19 @@
   button[type="submit"]:hover {
     background-color: #45a049;
   }
-  
+
+.flex-col{
+  position: relative;
+  animation: popup 1s ease;
+}
+
+@keyframes popup {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

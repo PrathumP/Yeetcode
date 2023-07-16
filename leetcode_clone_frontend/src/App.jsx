@@ -9,6 +9,7 @@ import Login from "./Components/Login/Login.jsx";
 import Error from "./Components/Error.jsx";
 import ProblemsPage from './Components/ProblemsPage/Problemspage';
 import Allproblems from "./Components/Allproblems/Allproblems";
+import About from "./Components/About/About";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path ="/problems" element ={<Allproblems/>}></Route>
       <Route path="/problems/:pid/" element={<ProblemsPage />} />
       <Route path="*" element={<Error />}></Route>
+      <Route path="/about" element={<About />}></Route>
       </Routes>
     </Router>
   );

@@ -26,9 +26,17 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  background-color: #242424; /* Set the background color for the entire body */
+}
+
+#root {
+  max-width: 1200px; /* Optional: Set a maximum width for the content container */
+  padding: 2rem; /* Optional: Add some padding to the content container */
+  text-align: center;
+  color: #ffffff; /* Set the text color for the content container */
 }
 
 h1 {
