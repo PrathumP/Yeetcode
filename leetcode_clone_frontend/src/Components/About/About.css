@@ -1,37 +1,41 @@
 /* About.css */
 .about-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    animation: popup 1s ease;
+  width: 800px;
+  border: 1px solid #fbf7f7;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 0 20px;
+  background-color: rgba(243, 247, 248, 0.8);
+  position: relative;
+  animation: popup 1s ease;
   }
   
   .about-container h1 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #fff; /* Set the text color to white for better visibility on the background image */
+    color: #131212; /* Set the text color to white for better visibility on the background image */
   }
   
-  .about-container p {
-    font-size: 1rem;
+  .about-container h3 {
+    font-size: 1.3rem;
     line-height: 1.6;
     margin-bottom: 20px;
-    color: #fff; /* Set the text color to white for better visibility on the background image */
+    color: #0f0f0f; /* Set the text color to white for better visibility on the background image */
   }
   
   .about-container ul {
     margin-left: 20px;
+    color: #171616;
   }
   
   .about-container li {
     margin-bottom: 10px;
+    color: #171616;
   }
   
   /* Additional styles for readability and better contrast */
   .about-container a {
-    color: #fff;
+    color: #171616;
     text-decoration: underline;
   }
   
