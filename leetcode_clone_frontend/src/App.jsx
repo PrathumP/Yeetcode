@@ -1,8 +1,6 @@
-import { useState } from 'react'
 import './App.css'
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Link } from "react-router-dom";
 import Home from "./Components/Home/Home.jsx";
 import Signup from "./Components/Signup/Signup.jsx";
 import Login from "./Components/Login/Login.jsx";
@@ -10,6 +8,7 @@ import Error from "./Components/Error.jsx";
 import ProblemsPage from './Components/ProblemsPage/Problemspage';
 import Allproblems from "./Components/Allproblems/Allproblems";
 import About from "./Components/About/About";
+import TechnicalInterview from "./Components/TechnicalInterview/TechnicalInterview";
 
 function App() {
   return (
@@ -22,6 +21,7 @@ function App() {
       <Route path="/problems/:pid/" element={<ProblemsPage />} />
       <Route path="*" element={<Error />}></Route>
       <Route path="/about" element={<About />}></Route>
+      <Route path="/technical-interview" element={<TechnicalInterview />}></Route>
       </Routes>
     </Router>
   );

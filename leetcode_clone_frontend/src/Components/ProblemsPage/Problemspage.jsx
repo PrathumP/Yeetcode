@@ -25,8 +25,6 @@ const ProblemsPage = () => {
     init();
   }, [])
   // console.log(cleanId) ;
-
-
   const handleKey = (event) => {
     if (event.key == "Tab"){
       event.preventDefault() ;
@@ -37,7 +35,6 @@ const ProblemsPage = () => {
     }
     setCodeSeg(event.value) ;
   }
-
   return (
     <div>
 

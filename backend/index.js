@@ -1,13 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+require('dotenv').config();
+
 const port = process.env.PORT || 3000;
 var jwt = require("jsonwebtoken");
 //const { auth } = require("./middleware");
+const axios = require("axios");
 
 const auth = require("./auth");
 const bcrypt = require("bcryptjs");
-
+const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 const dbConnect = require("./db/dbconnect");
 
 const ProblemsModel = require("./models/problems");
@@ -209,6 +212,25 @@ app.get("/free-endpoint", (req, res) => {
   });
 
 dbConnect();
+
+app.get("/api/videos", async (req, res) => {
+  try {
+    const query = "coding interviews"; // Customize the search query here
+      const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=3&q=${encodeURIComponent(
+        query
+      )}&type=video&key=${apiKey}`;
+    const response = await axios.get(apiUrl);
+    const videos = response.data.items;
+    const videoIdsAndThumbnails = videos.map((video) => ({
+      id: video.id.videoId,
+      thumbnail: video.snippet.thumbnails.default.url,
+    }));
+    res.json(videoIdsAndThumbnails);
+  } catch (error) {
+    console.error("Error fetching videos:", error);
+    res.status(500).json({ error: "Failed to fetch videos" });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

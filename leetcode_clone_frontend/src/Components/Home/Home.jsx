@@ -27,7 +27,7 @@ export default function Home() {
         <div className="feature-card">
           <h2>Technical Interview Prep</h2>
           <p>Prepare for technical interviews with mock interview questions and helpful resources.</p>
-          <Link to="/interview-prep" className="feature-cta">Learn More</Link>
+          <Link to="/technical-interview" className="feature-cta">Learn More</Link>
         </div>
       </div>
       <div className="testimonial-section">
