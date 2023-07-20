@@ -32,10 +32,10 @@ const AllproblemsPage = () => {
           </tr>
 
           {problems.map((prob,index) => (
-            <tr>
+            <tr key = {prob.problemId}><td>
               <Link to={`/problems/:${prob.problemId}`}>
-                <td>{prob.title}</td>
-              </Link>
+                {prob.title}
+              </Link></td>
               <td className={`${prob.difficulty}`} >{prob.difficulty}</td>
               <td className={`${prob.difficulty}`} >{prob.acceptance}</td>
             </tr>

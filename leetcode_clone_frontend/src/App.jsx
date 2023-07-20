@@ -13,7 +13,6 @@ import About from "./Components/About/About";
 
 function App() {
   return (
-    <div className="App"> <h1> Hello bhai</h1></div>,
     <Router>
       <Routes>
       <Route exact path="/" element={<Home />}></Route>
@@ -29,4 +28,4 @@ function App() {
 }
 
 
-export default App
+export default App;

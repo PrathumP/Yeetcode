@@ -45,11 +45,11 @@ const ProblemsPage = () => {
         problem? (
           <div id="problempage" className='flex-row'>
             <div className="ques">
-              <h1>{problem.title}</h1>
-              <h2>Description</h2>
-              <p>{problem.description}</p>
-              <code>Input : {problem.exampleIn}</code>
-              <code>Output : {problem.exampleOut}</code>
+              <h1>{problem.title}</h1> 
+               <div className='desc'><h2>Description</h2>
+              <p>{problem.description}</p></div>
+              <div className='inout'><code>Input : {problem.exampleIn}</code>
+              <code>Output : {problem.exampleOut}</code> </div>
             </div>
             <div className="code">
               <h1>Code Here</h1>

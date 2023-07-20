@@ -63,3 +63,20 @@ button {
 #submit:hover {
   background-color: #45a049;
 }
+
+.desc {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 40px 20px 20px;
+  background-color: rgba(210, 207, 243, 0.8);
+}
+
+.inout {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 30px;
+  margin: 80px 20px;
+  background-color: rgba(210, 207, 243, 0.8);
+}
+

@@ -17,7 +17,6 @@ table {
 
 table::before {
   content: "";
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -54,12 +53,12 @@ td.Hard {
 
 a {
   text-decoration: none;
-  color: #333;
+  color: #59a0c1;
   transition: color 0.3s;
 }
 
 a:hover {
-  color: #555;
+  color: #1c7ff0;
 }
 
 @keyframes popup {
