@@ -6,7 +6,6 @@
   .signup-form {
     margin-top: 20px;
   }
-  
   .subform {
     margin-bottom: 10px;
   }
@@ -14,18 +13,19 @@
   label {
     font-weight: bold;
   }
-  
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
+
+  input[type="email"],
+  input[type="password"]{
+    width: 400px;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    text-align: center;
   }
   
   button[type="submit"] {
     padding: 10px 20px;
-    background-color: #4caf50;
+    background-color: #71ee75;
     color: white;
     border: none;
     border-radius: 4px;
@@ -40,6 +40,21 @@
   position: relative;
   animation: popup 1s ease;
 }
+
+h1 {
+  color: #ffffff; /* White color for the text */
+}
+
+/* Style for the labels "Email" and "Password" */
+label {
+  color: #ffffff; /* White color for the labels */
+}
+
+/* Style for the text "Already registered?" */
+.forgot-password {
+  color: #ffffff; /* White color for the text */
+}
+
 
 @keyframes popup {
   0% {

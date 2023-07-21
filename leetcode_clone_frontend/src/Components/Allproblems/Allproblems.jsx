@@ -25,7 +25,7 @@ const AllproblemsPage = () => {
       <table>
         <tbody>
 
-          <tr>
+          <tr className='header'>
             <th>Title</th>
             <th>Difficulty</th>
             <th>Acceptance</th>

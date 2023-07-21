@@ -3,30 +3,32 @@ import axios from "axios";
 import { useState } from "react";
 import { backendUrl } from "../constants.js";
 import "./Login.css"; 
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+    const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const navigate = useNavigate(); 
   return (
 		<div id="login" className="flex-col">
 			<h1>Login</h1>
 			<div className="signup-form">
 				<div className="subform">
-					<label htmlFor="email">Email: </label>
+					<label htmlFor="email">Email: </label><br/>
 					<input
 						onChange={(e) => {
 							setEmail(e.target.value);
 						}}
-						type="text"
+						type="email"
 						name="email"
 						placeholder="Your Email"
 					/>
 				</div>
         <div className="subform">
-					<label htmlFor="password">Password: </label>
+					<label htmlFor="password">Password: </label><br/>
 					<input
 						onChange={(e) => setPassword(e.target.value)}
-						type="text"
+						type="password"
 						name="password"
 						placeholder="Your Password"
 					/>
@@ -45,6 +47,7 @@ const Login = () => {
 									"token",
 									response.data.token
 								);
+								navigate("/problems");
 							})
 							.catch(function (error) {
 								console.log(error);

@@ -15,11 +15,13 @@
     font-weight: bold;
   }
   
-  input[type="text"] {
-    width: 100%;
+  input[type="email"],
+  input[type="password"] {
+    width: 400px;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    text-align: center;
   }
   
   button[type="submit"] {

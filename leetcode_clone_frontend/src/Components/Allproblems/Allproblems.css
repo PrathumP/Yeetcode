@@ -4,7 +4,8 @@
 }
 
 table {
-  width: 100%;
+  width: 800px;
+  height: 900px;
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   margin-top: 40px;
@@ -13,6 +14,7 @@ table {
   position: relative; /* Enable positioning for pseudo-element */
   background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background color for the table */
   animation: popup 1s ease;
+  text-align: center;
 }
 
 table::before {
@@ -23,16 +25,23 @@ table::before {
   height: 100%;
 }
 
+.header.th {
+  border-radius: 5px;
+}
 th {
   background-color: #f2f2f2;
   color: #333;
   font-weight: bold;
   padding: 16px;
-  text-align: left;
+  border-radius: 5px;
+  text-align: center;
+  font-size: xx-large;
 }
 
 td {
   padding: 16px;
+  text-align: center;
+  font-size: xx-large;
 }
 
 td.difficulty {

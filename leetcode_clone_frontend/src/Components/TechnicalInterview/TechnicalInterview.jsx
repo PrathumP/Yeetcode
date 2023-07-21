@@ -48,6 +48,7 @@ export default function TechnicalInterview() {
         Get ready to boost your confidence and skills, and land your dream job!
       </h3>
       <div className="youtube-video-container">
+        <h2>Some popular coding interviews on Youtube :</h2>
         {videoIds.map((video, index) => (
           <div key={index} className="youtube-video">
             <YouTube videoId={video.id} />
