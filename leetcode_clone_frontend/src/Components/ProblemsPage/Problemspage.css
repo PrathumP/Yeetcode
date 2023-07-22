@@ -75,8 +75,15 @@ button {
 .inout {
   border: 1px solid #ddd;
   border-radius: 5px;
-  padding: 30px;
-  margin: 80px 20px;
+  padding: 20px;
+  margin: 20px 20px;
   background-color: rgba(210, 207, 243, 0.8);
+  overflow-y: auto;
+  max-height: 214px;
 }
 
+.desc {
+  max-height: 300px; /* Set a fixed maximum height */
+  overflow-y: auto;
+  min-width: 200px; /* Enable vertical scrolling when content overflows */
+}
