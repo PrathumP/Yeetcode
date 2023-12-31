@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
-
+import axios from 'axios';
 import "./Problemspage.css"
 import {backendUrl} from "../constants.js";
 
@@ -35,6 +35,46 @@ const ProblemsPage = () => {
     }
     setCodeSeg(event.value) ;
   }
+  const [chatInput, setChatInput] = useState('');
+  const [chatHistory, setChatHistory] = useState([]);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const sendMessageToChatGPT = async () => {
+    try {
+      setChatHistory((prevChatHistory) => [
+        ...prevChatHistory,
+        { sender: 'You', message: chatInput }
+      ]);
+      setChatInput('');
+    const response = await axios.post(`${backendUrl}/chatgpt`, { message: chatInput });
+
+    const choices = response.data.response.choices || [];
+
+    const chatResponse = choices.map(choice => choice.message.content).join(' ');
+
+      setChatHistory((prevChatHistory) => [
+        ...prevChatHistory,
+        { sender: 'ChatGPT', message: chatResponse }
+      ]);
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  useEffect(() => {
+  }, [chatHistory]);
+
+  const toggleChat = () => {
+    setIsChatOpen((prevIsChatOpen) => !prevIsChatOpen);
+  };
+
+  const handleInputKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      sendMessageToChatGPT();
+    }
+  };
+
   return (
     <div>
 
@@ -74,6 +114,39 @@ const ProblemsPage = () => {
         ) :
         (<div>The searched Question Doesn't exist</div>)
       }
+<div className="chat-container">
+      {!isChatOpen && (
+        <button className="toggle-button" onClick={toggleChat}>
+          ChatGPT
+        </button>
+      )}
+
+      {isChatOpen && (
+        <div className="chat-box">
+          <div className="chat-header">
+            <span >ChatGPT</span>
+            <button onClick={toggleChat}>X</button>
+          </div>
+          <div className="chat-history">
+            {chatHistory.map((message, index) => (
+            <div key={index} className={`message ${message.sender}`}>
+              <span>{`${message.sender}: `}</span>{message.message}
+            </div>
+            ))}
+          </div>
+          <div className="chat-input">
+            <input
+              type="text"
+              placeholder="Type your message..."
+              value={chatInput}
+              onChange={(e) => setChatInput(e.target.value)}
+              onKeyPress={handleInputKeyPress}
+            />
+            <button onClick={sendMessageToChatGPT}>Send</button>
+          </div>
+        </div>
+      )}
+    </div>
 
     </div>
     

@@ -11,6 +11,7 @@ const axios = require("axios");
 const auth = require("./auth");
 const bcrypt = require("bcryptjs");
 const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
+const openai_key = process.env.OPEN_AI_KEY
 const dbConnect = require("./db/dbconnect");
 
 const ProblemsModel = require("./models/problems");
@@ -28,55 +29,56 @@ app.get("/", (req, res) => {
   });
 });
 
-const sampleProblems = [{
-	title: "Sample Problem",
-	problemId: "1",
-	difficulty: "Easy",
-  acceptance: "50.5%",
-	description: "This is a sample problem description.",
-	exampleIn: "Input for the sample problem",
-	exampleOut: "Output for the sample problem",
-  },{ title: "Sample Problem",
-  problemId: "2",
-  difficulty: "Easy",
-  acceptance: "62.3%",
-  description: "This is a sample problem2 description.",
-  exampleIn: "Input for the sample problem2",
-  exampleOut: "Output for the sample problem2",
-},{ title: "Sample Problem3",
-problemId: "3",
-difficulty: "Medium",
-acceptance: "44.6%",
-description: "This is a sample problem3 description.",
-exampleIn: "Input for the sample problem3",
-exampleOut: "Output for the sample problem3",
-},{ title: "Sample Problem6",
-problemId: "6",
-difficulty: "Hard",
-acceptance: "32.8%",
-description: "Tis is a sample problem6 description.",
-exampleIn: "Input for the sample problem6",
-exampleOut: "Output for the sample problem6",
-},{ title: "Sample Problem5",
-problemId: "5",
-difficulty: "Medium",
-acceptance: "38.8%",
-description: "This is a sample problem5 description.",
-exampleIn: "Input for the sample problem5",
-exampleOut: "Output for the sample problem5",
-},{ title: "Sample Problem4",
-problemId: "4",
-difficulty: "Hard",
-acceptance: "36.4%",
-description: "This is a sample problem4 description.",
-exampleIn: "Input for the sample problem4",
-exampleOut: "Output for the sample problem4",
-},
-];
+// const sampleProblems = [{
+// 	title: "Sample Problem",
+// 	problemId: "1",
+// 	difficulty: "Easy",
+//   acceptance: "50.5%",
+// 	description: "This is a sample problem description.",
+// 	exampleIn: "Input for the sample problem",
+// 	exampleOut: "Output for the sample problem",
+//   },{ title: "Sample Problem",
+//   problemId: "2",
+//   difficulty: "Easy",
+//   acceptance: "62.3%",
+//   description: "This is a sample problem2 description.",
+//   exampleIn: "Input for the sample problem2",
+//   exampleOut: "Output for the sample problem2",
+// },{ title: "Sample Problem3",
+// problemId: "3",
+// difficulty: "Medium",
+// acceptance: "44.6%",
+// description: "This is a sample problem3 description.",
+// exampleIn: "Input for the sample problem3",
+// exampleOut: "Output for the sample problem3",
+// },{ title: "Sample Problem6",
+// problemId: "6",
+// difficulty: "Hard",
+// acceptance: "32.8%",
+// description: "Tis is a sample problem6 description.",
+// exampleIn: "Input for the sample problem6",
+// exampleOut: "Output for the sample problem6",
+// },{ title: "Sample Problem5",
+// problemId: "5",
+// difficulty: "Medium",
+// acceptance: "38.8%",
+// description: "This is a sample problem5 description.",
+// exampleIn: "Input for the sample problem5",
+// exampleOut: "Output for the sample problem5",
+// },{ title: "Sample Problem4",
+// problemId: "4",
+// difficulty: "Hard",
+// acceptance: "36.4%",
+// description: "This is a sample problem4 description.",
+// exampleIn: "Input for the sample problem4",
+// exampleOut: "Output for the sample problem4",
+// },
+// ];
 
 async function saveSampleProblems() {
 	try {
-	  for (const problemData of sampleProblems) {
+    const sampleProblemsFromDB = await ProblemsModel.find();
+	  for (const problemData of sampleProblemsFromDB) {
 		const { problemId } = problemData;
 		const existingProblem = await ProblemsModel.findOne({ problemId });
   
@@ -114,6 +116,33 @@ app.get("/problem/:id", async (req, res) => {
   res.json({
     problem,
   });
+});
+
+app.post("/chatgpt", async (req, res) => {
+  try {
+      const userInput = req.body.message;
+
+      const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+          model: "gpt-3.5-turbo",
+          messages : [
+            {
+                "role": "user",
+                "content": userInput
+            }
+        ],
+          max_tokens: 100,
+      }, {
+          headers: {
+              Authorization: `Bearer ${openai_key}`,
+              'Content-Type': 'application/json',
+          },
+      });
+      //console.log(response.data);
+      res.json({ response: response.data });
+  } catch (error) {
+    console.error('Error:', error.response ? error.response.data : error.message);
+    res.status(500).json({ error: 'An error occurred' });
+}
 });
 
 app.get("/me", auth, async (req, res) => {

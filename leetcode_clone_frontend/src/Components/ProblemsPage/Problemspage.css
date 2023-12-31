@@ -87,3 +87,71 @@ button {
   overflow-y: auto;
   min-width: 200px; /* Enable vertical scrolling when content overflows */
 }
+
+.chat-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.toggle-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.chat-box {
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.chat-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.chat-history {
+  background-color: rgba(210, 207, 243, 0.8);
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.chat-input {
+  padding: 10px;
+  display: flex;
+}
+
+.chat-input input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.chat-input button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.chatgpt-logo {
+  width: 50px; 
+  height: 50px;
+  cursor: pointer;
+}
