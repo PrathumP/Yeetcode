@@ -1,0 +1,31 @@
+.navbar {
+    background-color: rgba(138, 187, 238, 0.8);
+    padding: 10px;
+    display: flex;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  
+  .navbar a {
+    color: #e8e3e3;
+    margin-left: 10px;
+    text-decoration: none;
+  }
+
+  .signup-link {
+    margin-right: 10px;
+    justify-content: flex-end;
+  }
+
+  .problems {
+    margin-right: 10px;
+    justify-content: flex-end;
+  }
+  .home {
+    margin-left: 10px;
+    margin-right: auto; 
+  }
+  .user{
+    margin-left: 5px;
+    margin-right: 8px;
+  }

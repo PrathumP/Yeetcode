@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import "./Problemspage.css"
 import {backendUrl} from "../constants.js";
+import chatgptlogo from "./chatgpt.png";
 
 
 const ProblemsPage = () => {
@@ -116,9 +117,12 @@ const ProblemsPage = () => {
       }
 <div className="chat-container">
       {!isChatOpen && (
-        <button className="toggle-button" onClick={toggleChat}>
-          ChatGPT
-        </button>
+        <img
+        className="chatgpt-logo"
+        src={chatgptlogo}
+        alt="ChatGPT Logo"
+        onClick={toggleChat}
+      />
       )}
 
       {isChatOpen && (

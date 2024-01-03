@@ -5,7 +5,8 @@
     padding: 20px;
     background-color: rgba(210, 207, 243, 0.8);
     position: relative;
-    border-radius: 5px; /* Add rounded corners to the box */
+    border-radius: 5px;
+    margin-top: 20px;
   }
   
   .youtube-video-container h1, .youtube-video-container h2 {

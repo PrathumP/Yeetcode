@@ -2,6 +2,7 @@
   min-height: 91vh;
   display: flex;
   align-items: flex-start;
+  position: relative;
 }
 
 .ques , .code {
@@ -109,6 +110,7 @@ button {
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: 200px 0.3s ease;
 }
 
 .chat-header {
@@ -150,8 +152,15 @@ button {
   cursor: pointer;
 }
 
+.chatgpt-logo:hover {
+  transform: scale(1.3);
+}
+
 .chatgpt-logo {
   width: 50px; 
   height: 50px;
   cursor: pointer;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease; 
 }

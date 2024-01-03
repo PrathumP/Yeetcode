@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate(); 
   return (
     <div id='signup' className='flex-col'>
@@ -48,9 +49,9 @@ const Signup = () => {
                 password: password,
               }),
             });
-
             const json = await response.json();
             console.log(json);
+            setIsAuthenticated(true);
             navigate("/problems");
           }}
         >

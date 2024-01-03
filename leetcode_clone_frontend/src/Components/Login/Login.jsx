@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
     const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
 	const navigate = useNavigate(); 
   return (
 		<div id="login" className="flex-col">
@@ -47,6 +48,7 @@ const Login = () => {
 									"token",
 									response.data.token
 								);
+								setIsAuthenticated(true);
 								navigate("/problems");
 							})
 							.catch(function (error) {

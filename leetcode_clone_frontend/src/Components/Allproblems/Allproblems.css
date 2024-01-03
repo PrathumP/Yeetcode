@@ -1,6 +1,8 @@
 /* homeStyles.css */
 #allproblems {
-  margin: 20px;
+  margin: 0 auto;
+  position: relative;
+  max-width: 800px;
 }
 
 table {

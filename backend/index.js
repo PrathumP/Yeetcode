@@ -29,52 +29,6 @@ app.get("/", (req, res) => {
   });
 });
 
-// const sampleProblems = [{
-// 	title: "Sample Problem",
-// 	problemId: "1",
-// 	difficulty: "Easy",
-//   acceptance: "50.5%",
-// 	description: "This is a sample problem description.",
-// 	exampleIn: "Input for the sample problem",
-// 	exampleOut: "Output for the sample problem",
-//   },{ title: "Sample Problem",
-//   problemId: "2",
-//   difficulty: "Easy",
-//   acceptance: "62.3%",
-//   description: "This is a sample problem2 description.",
-//   exampleIn: "Input for the sample problem2",
-//   exampleOut: "Output for the sample problem2",
-// },{ title: "Sample Problem3",
-// problemId: "3",
-// difficulty: "Medium",
-// acceptance: "44.6%",
-// description: "This is a sample problem3 description.",
-// exampleIn: "Input for the sample problem3",
-// exampleOut: "Output for the sample problem3",
-// },{ title: "Sample Problem6",
-// problemId: "6",
-// difficulty: "Hard",
-// acceptance: "32.8%",
-// description: "Tis is a sample problem6 description.",
-// exampleIn: "Input for the sample problem6",
-// exampleOut: "Output for the sample problem6",
-// },{ title: "Sample Problem5",
-// problemId: "5",
-// difficulty: "Medium",
-// acceptance: "38.8%",
-// description: "This is a sample problem5 description.",
-// exampleIn: "Input for the sample problem5",
-// exampleOut: "Output for the sample problem5",
-// },{ title: "Sample Problem4",
-// problemId: "4",
-// difficulty: "Hard",
-// acceptance: "36.4%",
-// description: "This is a sample problem4 description.",
-// exampleIn: "Input for the sample problem4",
-// exampleOut: "Output for the sample problem4",
-// },
-// ];
-
 async function saveSampleProblems() {
 	try {
     const sampleProblemsFromDB = await ProblemsModel.find();
@@ -130,7 +84,6 @@ app.post("/chatgpt", async (req, res) => {
                 "content": userInput
             }
         ],
-          max_tokens: 100,
       }, {
           headers: {
               Authorization: `Bearer ${openai_key}`,
@@ -237,6 +190,7 @@ app.get("/free-endpoint", (req, res) => {
   
   // authentication endpoint
   app.get("/auth-endpoint", auth,  (req, res) => {
+  console.log("get in");
 	res.json({ message: "You are authorized to access me" });
   });
 

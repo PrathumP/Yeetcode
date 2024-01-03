@@ -4,10 +4,11 @@
   border: 1px solid #fbf7f7;
   border-radius: 5px;
   padding: 20px;
-  margin: 0 20px;
+  margin: 0 auto;
   background-color: rgba(243, 247, 248, 0.8);
   position: relative;
   animation: popup 1s ease;
+  margin-top: 20px;
   }
   
   .about-container h1 {

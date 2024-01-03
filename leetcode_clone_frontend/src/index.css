@@ -15,15 +15,13 @@
 body {
   margin: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh; /* Set the background color for the entire body */
 }
 
 #root {
   max-width: 1200px; /* Optional: Set a maximum width for the content container */
   padding: 2rem; /* Optional: Add some padding to the content container */
-  text-align: center;/* Set the text color for the content container */
+  /* Set the text color for the content container */
 }
 
 h1 {
@@ -39,4 +37,3 @@ a {
 a:hover {
   color: #161bb3;
 }
-
