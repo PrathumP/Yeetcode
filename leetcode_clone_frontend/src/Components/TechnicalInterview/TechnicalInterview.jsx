@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./TechnicalInterview.css";
 import axios from "axios"; // Import axios
-import YouTube from "react-youtube";
 import {backendUrl} from "../constants.js";
+import  Youtube  from "react-lazyload-youtube"
+import 'react-lazyload-youtube/dist/index.css'
 
 export default function TechnicalInterview() {
   const [videoIds, setVideoIds] = useState([]);
@@ -51,7 +52,7 @@ export default function TechnicalInterview() {
         <h2>Some popular coding interviews on Youtube :</h2>
         {videoIds.map((video, index) => (
           <div key={index} className="youtube-video">
-            <YouTube videoId={video.id} />
+            <Youtube width="640px" height="360px" videoId={video.id} />
           </div>
         ))}
       </div>
